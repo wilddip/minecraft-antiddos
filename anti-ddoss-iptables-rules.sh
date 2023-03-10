@@ -123,8 +123,8 @@ iptables -A port-scanning -j DROP
 
 
 ## Ограничение на коннкеты с одного адреса
-iptables -A INPUT -p tcp -m tcp --dport 25565 --tcp-flags FIN,SYN,RST,ACK SYN -m connlimit --connlimit-above 20 --connlimit-mask 32 --connlimit-saddr -j DROP
-iptables -A INPUT -p tcp -m tcp --dport 25565 --tcp-flags FIN,SYN,RST,ACK SYN -m connlimit --connlimit-above 10 --connlimit-mask 32 --connlimit-saddr -j REJECT --reject-with icmp-port-unreachable
+iptables -A INPUT -p tcp -m tcp --dport 2280 --tcp-flags FIN,SYN,RST,ACK SYN -m connlimit --connlimit-above 20 --connlimit-mask 32 --connlimit-saddr -j DROP
+iptables -A INPUT -p tcp -m tcp --dport 2280 --tcp-flags FIN,SYN,RST,ACK SYN -m connlimit --connlimit-above 10 --connlimit-mask 32 --connlimit-saddr -j REJECT --reject-with icmp-port-unreachable
 
 ## udp пошел в жопу (UPD: раскомментите для high-load)
 #iptables -A INPUT -p udp -j DROP
