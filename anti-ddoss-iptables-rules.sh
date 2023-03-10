@@ -126,8 +126,8 @@ iptables -A port-scanning -j DROP
 iptables -A INPUT -p tcp -m tcp --dport 25565 --tcp-flags FIN,SYN,RST,ACK SYN -m connlimit --connlimit-above 20 --connlimit-mask 32 --connlimit-saddr -j DROP
 iptables -A INPUT -p tcp -m tcp --dport 25565 --tcp-flags FIN,SYN,RST,ACK SYN -m connlimit --connlimit-above 10 --connlimit-mask 32 --connlimit-saddr -j REJECT --reject-with icmp-port-unreachable
 
-## udp пошел в жопу
-iptables -A INPUT -p udp -j DROP
+## udp пошел в жопу (UPD: раскомментите для high-load)
+#iptables -A INPUT -p udp -j DROP
 
 ## защита от ддоса по ICMP NOT WORKING
 #iptables -A PREROUTING -p icmp -j DROP
